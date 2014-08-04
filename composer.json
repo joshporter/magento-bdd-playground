@@ -1,0 +1,26 @@
+{
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "magetest/magento-phpspec-extension": "~2.1.0",
+        "magetest/magento-behat-extension": "dev-develop",
+        "magetest/manager": "~0.9.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-0": {
+            "MageTest\\PhpSpec\\MagentoExtension": "src",
+            "": [
+                "public/app/code/local",
+                "public/app/code/community",
+                "public/app/code/core",
+                "public/app",
+                "public/lib"
+            ],
+            "Mage" : "public/app/code/core"
+        }
+    }
+}

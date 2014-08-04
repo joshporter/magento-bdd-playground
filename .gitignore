@@ -1,0 +1,10 @@
+tools/.vagrant
+vendor
+magento-sample-*
+bin
+
+# Magento
+public/var/*
+public/media/*
+public/app/etc/local.xml
+public/downloader/.cache/

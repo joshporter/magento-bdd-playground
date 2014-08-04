@@ -1,0 +1,23 @@
+Magento BDD Playground
+===
+Magento CE 1.8.1 (1.9 sample data is massive). Install behat and phpspec with relevant extensions.
+
+```bash
+composer install
+cd tools
+vagrant up
+```
+
+Add following line to `/etc/hosts`:
+```bash
+192.168.50.50 magento-bdd.dev
+```
+
+To run behat test, need to be inside of VM
+
+```bash
+cd tools
+vagrant ssh
+cd /vagrant
+bin/phpspec r && bin/behat
+```
