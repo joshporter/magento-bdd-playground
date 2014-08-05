@@ -1,5 +1,6 @@
 Magento BDD Playground
 ===
+[![Build Status](https://travis-ci.org/joshporter/magento-bdd-playground.svg?branch=master)](https://travis-ci.org/joshporter/magento-bdd-playground)
 Magento CE 1.8.1 (1.9 sample data is massive). Install behat and phpspec with relevant extensions.
 
 ```bash
