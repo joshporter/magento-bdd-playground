@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-composer install --prefer-source
 
 # Packages
 sudo a2enmod rewrite actions fastcgi alias
@@ -41,4 +40,4 @@ mysql -uroot -e 'CREATE DATABASE 'magento';'
 mysql -uroot magento < magento-sample-data-1.6.1.0/magento_sample_data_for_1.6.1.0.sql
 
 # Install Magento CE 1.8
-php -f public/install.php -- --license_agreement_accepted yes --locale en_GB --timezone Europe/London --default_currency GBP --db_host localhost --db_name magento --db_user root --db_pass "" --url http://manager.dev/ --skip_url_validation yes --use_rewrites yes --use_secure no --secure_base_url http://manager.dev/ --use_secure_admin no --admin_firstname admin --admin_lastname admin --admin_email admin@example.com --admin_username admin --admin_password 123123pass
+php -f public/install.php -- --license_agreement_accepted yes --locale en_GB --timezone Europe/London --default_currency GBP --db_host localhost --db_name magento --db_user root --db_pass "" --url http://magento-bdd.dev/ --skip_url_validation yes --use_rewrites yes --use_secure no --secure_base_url http://magento-bdd.dev/ --use_secure_admin no --admin_firstname admin --admin_lastname admin --admin_email admin@example.com --admin_username admin --admin_password 123123pass
