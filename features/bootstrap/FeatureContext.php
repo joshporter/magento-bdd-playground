@@ -1,44 +1,45 @@
 <?php
 
-use Behat\Behat\Context\ClosuredContextInterface,
-    Behat\Behat\Context\TranslatedContextInterface,
-    Behat\Behat\Context\BehatContext,
-    Behat\Behat\Exception\PendingException;
-use Behat\Gherkin\Node\PyStringNode,
-    Behat\Gherkin\Node\TableNode;
-
-//
-// Require 3rd-party libraries here:
-//
-//   require_once 'PHPUnit/Autoload.php';
-//   require_once 'PHPUnit/Framework/Assert/Functions.php';
-//
+use MageTest\MagentoExtension\Context\MagentoContext;
+use MageTest\Manager\Attributes\Provider\YamlProvider;
+use MageTest\Manager\FixtureManager;
 
 /**
  * Features context.
  */
-class FeatureContext extends BehatContext
+class FeatureContext extends MagentoContext
 {
-    /**
-     * Initializes context.
-     * Every scenario gets it's own context object.
-     *
-     * @param array $parameters context parameters (set them up through behat.yml)
-     */
-    public function __construct(array $parameters)
+    private $manager;
+
+    public function __construct()
     {
-        // Initialize your context here
+        $this->useContext('customer', new CustomerContext());
     }
 
-//
-// Place your definition and hook methods here:
-//
-//    /**
-//     * @Given /^I have done something with "([^"]*)"$/
-//     */
-//    public function iHaveDoneSomethingWith($argument)
-//    {
-//        doSomethingWith($argument);
-//    }
-//
+    /**
+     * @BeforeScenario
+     */
+    public function before()
+    {
+        $this->manager = new FixtureManager(new YamlProvider());
+    }
+
+    /**
+     * @AfterScenario
+     */
+    public function after()
+    {
+        $this->manager->clear();
+        $this->manager = null;
+    }
+
+    public function getManager()
+    {
+        return $this->manager;
+    }
+
+    public function getWebAssert()
+    {
+        return $this->getMink()->assertSession();
+    }
 }

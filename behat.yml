@@ -1,0 +1,23 @@
+default:
+  context:
+    class: FeatureContext
+  formatter:
+    name: pretty
+  extensions:
+    SensioLabs\Behat\PageObjectExtension\Extension:
+      namespaces:
+        page: Page
+    MageTest\MagentoExtension\Extension:
+      base_url: http://magento-bdd.dev/
+    Behat\MinkExtension\Extension:
+      base_url: http://magento-bdd.dev/
+      goutte:
+        guzzle_parameters:
+          curl.options:
+            CURLOPT_SSL_VERIFYPEER: false
+            CURLOPT_CERTINFO: false
+            CURLOPT_TIMEOUT: 120
+          ssl.certificate_authority: false
+#   command to open the failing html pages:
+      show_cmd: echo '%s'
+      show_tmp_dir: /vagrant
