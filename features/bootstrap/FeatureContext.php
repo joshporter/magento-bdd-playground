@@ -1,19 +1,20 @@
 <?php
 
-use MageTest\MagentoExtension\Context\MagentoContext;
+use MageTest\MagentoExtension\Context\RawMagentoContext;
 use MageTest\Manager\Attributes\Provider\YamlProvider;
 use MageTest\Manager\FixtureManager;
 
 /**
  * Features context.
  */
-class FeatureContext extends MagentoContext
+class FeatureContext extends RawMagentoContext
 {
     private $manager;
 
     public function __construct()
     {
         $this->useContext('customer', new CustomerContext());
+        $this->useContext('config_product', new ConfigProductContext());
     }
 
     /**
@@ -29,6 +30,7 @@ class FeatureContext extends MagentoContext
      */
     public function after()
     {
+        $this->getFixtureFactory()->clean();
         $this->manager->clear();
         $this->manager = null;
     }

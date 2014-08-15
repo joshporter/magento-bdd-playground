@@ -13,7 +13,7 @@ class CustomerContext extends PageObjectContext
     {
         $this->customer = $this->getMainContext()
             ->getManager()
-            ->loadFixture(getcwd() . DIRECTORY_SEPARATOR . 'vendor/magetest/manager/src/MageTest/Manager/Fixtures/Customer.yml');
+            ->loadFixture('customer/customer');
     }
 
     /**
@@ -33,4 +33,6 @@ class CustomerContext extends PageObjectContext
         $webAssert = $this->getMainContext()->getWebAssert();
         $webAssert->pageTextContains($this->customer->getEmail());
     }
+
+
 }
