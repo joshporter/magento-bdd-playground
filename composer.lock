@@ -777,12 +777,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MageTest/Manager.git",
-                "reference": "72ade8d90516f40b052f807190fc8a8316ecfba1"
+                "reference": "1737cfd99640a8a5820b7f547f68b0a8f42d2d07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MageTest/Manager/zipball/72ade8d90516f40b052f807190fc8a8316ecfba1",
-                "reference": "72ade8d90516f40b052f807190fc8a8316ecfba1",
+                "url": "https://api.github.com/repos/MageTest/Manager/zipball/1737cfd99640a8a5820b7f547f68b0a8f42d2d07",
+                "reference": "1737cfd99640a8a5820b7f547f68b0a8f42d2d07",
                 "shasum": ""
             },
             "require": {
@@ -828,7 +828,7 @@
                 "magento",
                 "testing"
             ],
-            "time": "2014-08-15 10:49:02"
+            "time": "2014-08-15 14:25:41"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
