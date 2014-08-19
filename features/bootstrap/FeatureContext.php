@@ -9,6 +9,7 @@ use MageTest\Manager\FixtureManager;
  */
 class FeatureContext extends RawMagentoContext
 {
+    /* @var \MageTest\Manager\FixtureManager */
     private $manager;
 
     public function __construct()
@@ -30,7 +31,6 @@ class FeatureContext extends RawMagentoContext
      */
     public function after()
     {
-        $this->getFixtureFactory()->clean();
         $this->manager->clear();
         $this->manager = null;
     }

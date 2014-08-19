@@ -44,6 +44,7 @@ sudo echo "<VirtualHost *:80>
 sudo service apache2 restart
 sudo service php5-fpm restart
 
+#Install Magento CE 1.8.1
 mysql -uroot -proot -e "SET PASSWORD = PASSWORD('');"
 echo 'Installing Magento sample data...'
 wget -O magento-sample-data-1.6.1.0.tar.gz http://www.magentocommerce.com/downloads/assets/1.6.1.0/magento-sample-data-1.6.1.0.tar.gz 2> /dev/null
@@ -57,3 +58,10 @@ php -f /vagrant/public/install.php -- --license_agreement_accepted yes --locale 
 sudo bash -c "cat >> /etc/hosts <<EOF
 127.0.0.1 magento-bdd.dev
 EOF"
+
+#Install PhantomJS
+cd /usr/local/share
+sudo wget https://phantomjs.googlecode.com/files/phantomjs-1.9.2-linux-i686.tar.bz2
+sudo tar xjf phantomjs-1.9.2-linux-x86_64.tar.bz2
+sudo ln -s /usr/local/share/phantomjs-1.9.2-linux-i686/bin/phantomjs /usr/local/share/phantomjs; sudo ln -s /usr/local/share/phantomjs-1.9.2-linux-i686/bin/phantomjs /usr/local/bin/phantomjs; sudo ln -s /usr/local/share/phantomjs-1.9.2-linux-i686/bin/phantomjs /usr/bin/phantomjs
+sudo rm phantomjs-1.9.2-linux-i686.tar.bz2
