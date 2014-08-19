@@ -8,9 +8,9 @@ default:
       namespaces:
         page: Page
     MageTest\MagentoExtension\Extension:
-      base_url: http://magento-bdd.dev/
+      base_url: http://magento-bdd.dev
     Behat\MinkExtension\Extension:
-      base_url: http://magento-bdd.dev/
+      base_url: http://magento-bdd.dev
       goutte:
         guzzle_parameters:
           curl.options:
@@ -18,6 +18,17 @@ default:
             CURLOPT_CERTINFO: false
             CURLOPT_TIMEOUT: 120
           ssl.certificate_authority: false
-#   command to open the failing html pages:
+      selenium2:
+        wd_host: http://localhost:8643/wd/hub
+        browser: phantomjs
+      show_cmd: echo '%s'
+      show_tmp_dir: /vagrant
+phantomjs:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://magento-bdd.dev
+      selenium2:
+        wd_host: http://localhost:8643/wd/hub
+        browser: phantomjs
       show_cmd: echo '%s'
       show_tmp_dir: /vagrant

@@ -3,9 +3,10 @@
         "php": ">=5.4.0"
     },
     "require-dev": {
+        "behat/mink-selenium2-driver": "1.1.1",
         "magetest/magento-phpspec-extension": "~2.1.0",
         "magetest/magento-behat-extension": "dev-develop",
-        "magetest/manager": "~0.9.0"
+        "magetest/manager": "dev-feature/config-product-builder"
     },
     "config": {
         "bin-dir": "bin"
